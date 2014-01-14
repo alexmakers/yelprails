@@ -16,4 +16,14 @@ describe 'creating restaurants' do
 
   end
 
+  context 'without a name and description' do
+
+    it 'should display errors' do
+      visit '/restaurants/new'
+      click_button 'Create Restaurant'
+
+      expect(page).to have_content 'error'
+    end
+
+  end
 end
