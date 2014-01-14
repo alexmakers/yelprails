@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'reviewing' do
   before do
-    Restaurant.create(name: 'McDonalds')
+    Restaurant.create(name: 'McDonalds', description: 'Blah blah blah blah blah blah blah')
   end
 
   it 'can add a review to a restaurant' do
