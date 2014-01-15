@@ -4,7 +4,7 @@ describe Restaurant do
 
   describe '.average_rating' do
 
-    let(:restaurant) { Restaurant.new(name: 'KFC') }
+    let(:restaurant) { Restaurant.create(name: 'Burger King', description: 'The food here is totally awesome blah blah!') }
 
     context 'no ratings' do
       it 'returns "Unrated"' do
@@ -22,10 +22,10 @@ describe Restaurant do
 
     context 'multiple ratings' do
       it 'returns an average of those ratings' do
-        restaurant.reviews << Review.new(rating: 3)
-        restaurant.reviews << Review.new(rating: 5)
+        restaurant.reviews << Review.new(rating: 2)
+        restaurant.reviews << Review.new(rating: 4)
 
-        expect(restaurant.average_rating).to eq 4
+        expect(restaurant.average_rating).to eq 3
       end
     end
 
