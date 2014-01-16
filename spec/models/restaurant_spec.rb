@@ -4,7 +4,7 @@ describe Restaurant do
 
   describe '.average_rating' do
 
-    let(:restaurant) { Restaurant.create(name: 'Burger King', description: 'The food here is totally awesome blah blah!') }
+    let(:restaurant) { create(:restaurant) }
 
     context 'no ratings' do
       it 'returns "Unrated"' do

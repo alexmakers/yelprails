@@ -1,9 +1,22 @@
-<h1>Restaurant page for <%= @restaurant.name %></h1>
+<div class='row'>
+  <div class='col-md-12'>
+    <h1>Restaurant page for <%= @restaurant.name %></h1>
 
-<p><%= @restaurant.description %></p>
-<h4><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
-<% @restaurant.reviews.each do |review| %>
-  <p>
-  Reviewer: <%= review.user.email %><br>
-  <%= review.content %> - <%= review.rating %></p>
-<% end %>
+    <p><%= @restaurant.description %></p>
+  </div>
+</div>
+
+<div class='row'>
+  <% @restaurant.reviews.each do |review| %>
+    <div class='col-sm-6 alert alert-warning'>
+      <h4>Reviewer: <%= review.user.email %></h4>
+      <%= review.content %> - <%= review.rating %>
+    </div>
+  <% end %>
+</div>
+<div class='row'>
+  <div class='col-md-12'>
+    <h4><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
+    </h4>
+  </div>
+</div>

@@ -36,10 +36,13 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem "twitter-bootstrap-rails", github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password

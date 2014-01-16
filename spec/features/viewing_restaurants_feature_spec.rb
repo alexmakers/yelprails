@@ -4,7 +4,7 @@ describe 'restaurants index' do
 
   context 'with restaurants' do
     before do
-      Restaurant.create(name: 'Nandos', description: 'Chicken')
+      create(:restaurant, name: 'Nandos')
     end
 
     it 'should display the names and descriptions of the restaurants' do
