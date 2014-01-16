@@ -4,7 +4,10 @@
 
 <% @restaurants.each do |restaurant| %>
 <div class='row'>
-  <div class='col-md-12'>
+  <div class='col-md-4 restaurant-image'>
+    <%= image_tag restaurant.image_url %>
+  </div>
+  <div class='col-md-8'>
     <h1>
       <%= link_to restaurant.name, restaurant %>
     </h1>
@@ -12,7 +15,7 @@
       Created <%= time_ago_in_words restaurant.created_at %> ago
     </h4>
     <h3>
-      Average rating: <%= restaurant.average_rating %>
+      Average rating: <%= star_rating restaurant %>
     </h3>
 
     <p><%= truncate restaurant.description, length: 140 %></p>

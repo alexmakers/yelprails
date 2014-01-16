@@ -13,5 +13,6 @@ class Restaurant < ActiveRecord::Base
 
     # (total / reviews.length)
   end
+  alias_method :rating, :average_rating
 
 end

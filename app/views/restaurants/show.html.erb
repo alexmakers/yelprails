@@ -8,9 +8,9 @@
 
 <div class='row'>
   <% @restaurant.reviews.each do |review| %>
-    <div class='col-sm-6 alert alert-warning'>
+    <div class='col-sm-6 alert <%= review_color(review) %>'>
       <h4>Reviewer: <%= review.user.email %></h4>
-      <%= review.content %> - <%= review.rating %>
+      <%= review.content %> - <%= star_rating review %>
     </div>
   <% end %>
 </div>
