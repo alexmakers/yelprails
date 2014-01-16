@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reviews
+
+  def reviewed?(restaurant)
+    reviews.where(restaurant: restaurant).any?
+  end
+
 end

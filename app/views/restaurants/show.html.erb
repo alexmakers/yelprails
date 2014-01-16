@@ -6,6 +6,25 @@
   </div>
 </div>
 
+<div id="map">
+</div>
+<script>
+var map = new GMaps({
+  div: '#map',
+  lat: <%= @restaurant.latitude %>,
+  lng: <%= @restaurant.longitude %>
+});
+
+map.addMarker({
+  lat: <%= @restaurant.latitude %>,
+  lng: <%= @restaurant.longitude %>,
+  title: '<%= @restaurant.name %>',
+  infoWindow: {
+    content: '<p><%= star_rating @restaurant %></p>'
+  }
+});
+</script>
+
 <div class='row'>
   <% @restaurant.reviews.each do |review| %>
     <div class='col-sm-6 alert <%= review_color(review) %>'>
@@ -16,7 +35,9 @@
 </div>
 <div class='row'>
   <div class='col-md-12'>
-    <h4><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
-    </h4>
+    <% if user_signed_in? && !current_user.reviewed?(@restaurant) %>
+      <h4><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
+      </h4>
+    <% end %>
   </div>
 </div>
